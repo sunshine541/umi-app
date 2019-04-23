@@ -8,10 +8,6 @@ import styles from './Sidebar.less';
 const { Sider } = Layout;
 const { SubMenu } = Menu;
 
-const mockMenuData = [{
-  
-}]
-
 class Sidebar extends React.Component {
   handleClick = () => {
 
@@ -19,6 +15,9 @@ class Sidebar extends React.Component {
   render() {
     return (
       <Sider className={styles.wrap} collapsible>
+        <div className={styles.logoWrap}>
+          <img src="" alt="logo" />
+        </div>
         <Menu
           mode="inline"
           theme="dark"

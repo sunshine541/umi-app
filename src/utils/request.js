@@ -54,6 +54,6 @@ const doRequest = (url, options) => request(url, options).then(res => {
       description: '请求错误',
     });
   }
-});
+}).catch(err => err);
 
 export default doRequest;

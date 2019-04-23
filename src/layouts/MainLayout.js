@@ -26,9 +26,9 @@ class MainLayout extends Component {
       <Locale>
         <div className={styles[wrapCls]}>
           <Layout className={styles.wrap}>
-            <BasicHeader />
+            <Sidebar />
             <Layout>
-              <Sidebar />
+              <BasicHeader />
               <Container>
                 <TabContainer>
                   {this.props.children}

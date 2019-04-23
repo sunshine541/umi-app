@@ -1,3 +1,7 @@
+/**
+ * 全局通用
+ * 包括：主题、国际化等
+ */
 export default {
   state: {
     antdLang: 'zh_CN', // antd的组件国际化，zh_CN中文，en_GB英文

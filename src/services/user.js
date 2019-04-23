@@ -1,3 +1,6 @@
+/**
+ * 接口请求
+ */
 import request from '../utils/request';
 
 export async function getList(data) {

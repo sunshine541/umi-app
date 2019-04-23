@@ -3,8 +3,6 @@
  * @desc: 
  *    tabKey规则：以组件名为key，若有多个同一组件的tab，每个key后面加【-id】，如流程A的tab为CreateFlow-1,流程B的tab为CreateFlow-2;
  *    tabKey有可能与comKey相同；
- *          
- *          
  */
 
  // tab的默认配置
