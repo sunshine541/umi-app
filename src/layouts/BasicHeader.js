@@ -6,7 +6,7 @@ import { Layout, Menu } from 'antd';
 
 const { Header } = Layout;
 const MenuItem = Menu.Item;
-const Head = () => {
+const BasicHeader = () => {
   return (
     <Header>
       <Menu
@@ -23,4 +23,4 @@ const Head = () => {
   )
 };
 
-export default Head;
+export default BasicHeader;

@@ -25,7 +25,7 @@ class MainLayout extends Component {
     return (
       <Locale>
         <div className={styles[wrapCls]}>
-          <Layout className={styles.layoutWrap}>
+          <Layout className={styles.wrap}>
             <BasicHeader />
             <Layout>
               <Sidebar />

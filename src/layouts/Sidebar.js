@@ -3,14 +3,14 @@
  */
 import React from 'react';
 import { Layout, Menu, Icon } from 'antd';
-import './Sidebar.less';
+import styles from './Sidebar.less';
 
 const { Sider } = Layout;
 const { SubMenu } = Menu;
 
 const Sidebar = () => {
   return (
-    <Sider className="side-wrap" collapsible>
+    <Sider className={styles.wrap} collapsible>
       <Menu
         mode="inline"
         theme="dark"

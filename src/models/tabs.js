@@ -5,6 +5,12 @@ export default {
   state: {
     openedTabs: [
       {
+        id: 0,
+        title: '桌面首页',
+        key: 'MainBoard',
+        closeable: false,
+      },
+      {
         id: 1,
         title: 'tab1',
         content: 'contnet1232322323内容1',
@@ -37,6 +43,7 @@ export default {
     },
     // 根据id删除tag标签
     removeTag(state, { payload }) {
+      console.log(payload, 'aaa')
       const { openedTabs } = state;
       const { id } = payload;
       const newTabs = [...openedTabs].filter(item => item.id !== id);

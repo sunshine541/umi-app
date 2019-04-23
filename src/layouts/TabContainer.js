@@ -6,9 +6,13 @@ import { connect } from 'dva';
 import { Tabs, Button } from 'antd';
 import CreateFlow from '../components/CreateFlow/CreateFlow';
 import FlowList from '../components/FlowList/FlowList';
+import MainBoard from '../components/MainBoard/MainBoard';
 
 const { TabPane } = Tabs;
 
+@connect(state => ({
+  tabs: state.tabs,
+}))
 class TabContainer extends React.Component {
   state = {
     activeKey: 1,
@@ -19,7 +23,7 @@ class TabContainer extends React.Component {
   onEdit = (targetKey, action) => {
     // 关闭tag
     if (action === 'remove') {
-      this.removeTag(targetKey)
+      this.removeTag(Number(targetKey));
     }
   }
   // 根据key获取tab内容组件
@@ -27,6 +31,7 @@ class TabContainer extends React.Component {
     switch(key) {
       case 'CreateFlow': return <CreateFlow />;
       case 'FlowList': return <FlowList />;
+      case 'MainBoard': return <MainBoard />
       default: return <CreateFlow />
     }
   }
@@ -40,6 +45,7 @@ class TabContainer extends React.Component {
     })
   }
   removeTag = (id) => {
+    console.log(id, 'aaa')
     const { openedTabs } = this.props.tabs;
     this.props.dispatch({
       type: 'tabs/removeTag',
@@ -65,8 +71,4 @@ class TabContainer extends React.Component {
   }
 }
 
-function mapStateToProps({ tabs }) {
-  return { tabs };
-}
-
-export default connect(mapStateToProps)(TabContainer);
+export default TabContainer;
