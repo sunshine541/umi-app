@@ -16,9 +16,6 @@ import styles from './MainLayout.less';
   theme: state.global.theme,
 }))
 class MainLayout extends Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     const { theme } = this.props;
     const wrapCls = `theme-${theme}`;
@@ -36,9 +33,9 @@ class MainLayout extends Component {
               </Container>
             </Layout>
           </Layout>
-        </div>  
+        </div>
       </Locale>
-     )
+     );
   }
 }
 

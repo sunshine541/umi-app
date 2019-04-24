@@ -21,8 +21,8 @@ class TabContainer extends React.Component {
       type: 'tabs/setActiveTagKey',
       payload: {
         activeTabKey,
-      }
-    })
+      },
+    });
   }
   onEdit = (targetKey, action) => {
     // 关闭tag
@@ -38,8 +38,8 @@ class TabContainer extends React.Component {
     switch(comKey) {
       case 'CreateFlow': return <CreateFlow />;
       case 'FlowList': return <FlowList />;
-      case 'MainBoard': return <MainBoard />
-      default: return <CreateFlow />
+      case 'MainBoard': return <MainBoard />;
+      default: return <CreateFlow />;
     }
   }
   addTag = () => {
@@ -47,17 +47,17 @@ class TabContainer extends React.Component {
       type: 'tabs/addTag',
       payload: {
         id: new Date().getTime(),
-        title: `name-${new Date().getTime()}`
-      }
-    })
+        title: `name-${new Date().getTime()}`,
+      },
+    });
   }
   removeTag = (tabKey) => {
     this.props.dispatch({
       type: 'tabs/removeTag',
       payload: {
         tabKey,
-      }
-    })
+      },
+    });
   }
   render() {
     const { openedTabs, activeTabKey } = this.props.tabs;

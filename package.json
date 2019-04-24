@@ -4,19 +4,21 @@
     "start": "umi dev",
     "build": "umi build",
     "test": "umi test",
-    "lint": "eslint --ext .js src mock tests",
+    "lint": "eslint --ext .js src",
+    "lint-fix": "eslint --fix --ext .js --ext .jsx src",
     "precommit": "lint-staged"
   },
   "dependencies": {
     "antd": "^3.15.0",
     "dva": "^2.5.0-beta.2",
+    "eslint-loader": "^2.1.2",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-intl": "^2.8.0",
     "umi-request": "^1.0.6"
   },
   "devDependencies": {
-    "babel-eslint": "^9.0.0",
+    "babel-eslint": "^10.0.1",
     "eslint": "^5.4.0",
     "eslint-config-umi": "^1.4.0",
     "eslint-plugin-flowtype": "^2.50.0",

@@ -19,12 +19,16 @@ class Locale extends React.Component {
   render() {
     const { antdLang, localLang } = this.props.global;
     return (
-      <IntlProvider key={localLang} locale={localLang} messages={localLocale[localLang]}>
+      <IntlProvider
+        key={localLang}
+        locale={localLang}
+        messages={localLocale[localLang]}
+      >
         <LocaleProvider locale={antdLocale[antdLang]}>
           {this.props.children}
         </LocaleProvider>
       </IntlProvider>
-    )
+    );
   }
 }
 
