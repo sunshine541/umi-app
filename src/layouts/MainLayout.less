@@ -1,7 +1,17 @@
 .wrap {
   height: 100vh;
-}
-
-.theme-default {
-  
+  :global {
+    .ant-layout-content {
+      position: relative;
+    }
+    .ant-tabs,
+    .ant-tabs-tabpane {
+      height: 100%;
+    }
+    .ant-tabs,
+    .ant-tabs-content,
+    .ant-tabs-tabpane {
+      overflow: auto;
+    }
+  }
 }

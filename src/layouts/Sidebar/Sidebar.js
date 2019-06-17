@@ -1,11 +1,15 @@
-/**
- * 侧边栏
+/*
+ * @Author: Fus
+ * @Date:   2019-04-24 14:16:58
+ * @Last Modified by: Fus
+ * @Last Modified time: 2019-06-17 16:34:58
+ * @Desc: 侧边栏
  */
 import React, { Fragment } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { connect } from 'dva';
 import { Layout, Menu, Icon } from 'antd';
-import { BaseContext } from '../constants/global';
+import { BaseContext } from '../../constants/global';
 import styles from './Sidebar.less';
 
 const { Sider } = Layout;
@@ -14,12 +18,20 @@ const { SubMenu } = Menu;
 const mockData = [{
   tabKey: 'sub1',
   level: 1,
-  title: '数据列表',
+  title: '菜单1',
   icon: 'user',
   children: [{
-    tabKey: 'FlowList-1',
-    comKey: 'FlowList',
+    tabKey: 'AboutMeList-1',
+    comKey: 'AboutMeList',
     title: '全部',
+    level: 2,
+    data: {
+      pageType: 'all',
+    },
+  }, {
+    tabKey: 'AboutMeList-2',
+    comKey: 'AboutMeList',
+    title: '菜单二',
     level: 2,
     data: {
       pageType: 'all',
@@ -33,10 +45,9 @@ class Sidebar extends React.Component {
     showCompany: true,
     openKeys: ['sub1'], // 已经打开的菜单栏
   }
-  rootSubmenuKeys = ['sub1', 'sub2', 'sub3', 'FlowList', 'sub4']; // 一级菜单
+  rootSubmenuKeys = ['sub1']; // 一级菜单
   // 点击增加tab
   addTab = (e) => {
-    console.log(e, 'aaa');
     const { config = {} } = e.item.props;
     this.context.dispatch({
       type: 'tabs/addTab',
@@ -102,7 +113,7 @@ class Sidebar extends React.Component {
       <Fragment>
         <Sider
           className={`${styles.sideWrap} sidebar-wrap`}
-          // collapsed={!showSidebar}
+          collapsed={!showSidebar}
           collapsible
           onCollapse={this.handleCollapse}
         >
@@ -113,8 +124,8 @@ class Sidebar extends React.Component {
             </span>}
           </div>
           <Menu
+            mode={showSidebar ? 'inline' : 'vertical'}
             theme="dark"
-            mode="inline"
             openKeys={openKeys}
             // openKeys={showSidebar ? openKeys : []}
             onOpenChange={this.onOpenChange}
@@ -131,4 +142,3 @@ class Sidebar extends React.Component {
 };
 
 export default Sidebar;
-

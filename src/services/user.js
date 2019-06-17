@@ -1,12 +1,17 @@
-/**
- * 接口请求
+/*
+ * @Author: Fus
+ * @Date:   2019-06-12 09:53:28
+ * @Last Modified by: Fus
+ * @Last Modified time: 2019-06-12 09:53:28
+ * @Desc: 用户信息接口
  */
-import request from '../utils/request';
+import fetch from '../utils/fetch';
+import query from '../constants/query';
 
-export async function getList(data) {
-  return request('http://rap2api.taobao.org/app/mock/165803/getList.json', {
-    method: 'post',
-    requestType: 'form',
-    data,
+// 获取用户列表
+export function getUserPage(params) {
+  return fetch(query.GET_USER_PAGE, {
+    method: 'get',
+    params,
   });
 }

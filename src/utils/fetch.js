@@ -1,3 +1,10 @@
+/*
+ * @Author: Fus
+ * @Date:   2019-06-17 16:44:49
+ * @Last Modified by: Fus
+ * @Last Modified time: 2019-06-17 16:44:49
+ * @Desc: 请求工具
+ */
 import axios from 'axios';
 import { message } from 'antd';
 import qs from 'qs';

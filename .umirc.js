@@ -1,5 +1,12 @@
 export default {
   treeShaking: true,
+  proxy: {
+    "/api/*": {
+      "target": "http://2.2.2.2",
+      "changeOrigin": true,
+      "pathRewrite": { "^/api" : "" }
+    }
+  },
   plugins: [
     // ref: https://umijs.org/plugin/umi-plugin-react.html
     ['umi-plugin-react', {
