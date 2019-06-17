@@ -18,42 +18,40 @@ class TabContainer extends React.Component {
   }
   onChange = (activeTabKey) => {
     this.props.dispatch({
-      type: 'tabs/setActiveTagKey',
+      type: 'tabs/setActiveTabKey',
       payload: {
         activeTabKey,
       },
     });
   }
   onEdit = (targetKey, action) => {
-    // 关闭tag
+    // 关闭tab
     if (action === 'remove') {
-      this.removeTag(targetKey);
+      this.removeTab(targetKey);
     }
   }
   // 根据key获取tab内容组件
-  getTabContentComponnet = (key) => {
-    const _a = key.split('-');
-    let comKey = key;
-    if (_a.length) comKey = _a[0]; // 区分CreateFlow-2122 等tab
-    switch(comKey) {
+  getTabContentComponnet = (comKey) => {
+    console.log(comKey, 'aaa');
+    switch (comKey) {
       case 'CreateFlow': return <CreateFlow />;
       case 'FlowList': return <FlowList />;
       case 'MainBoard': return <MainBoard />;
       default: return <CreateFlow />;
     }
   }
-  addTag = () => {
+  addTab = () => {
     this.props.dispatch({
-      type: 'tabs/addTag',
+      type: 'tabs/addTab',
       payload: {
         id: new Date().getTime(),
         title: `name-${new Date().getTime()}`,
       },
     });
   }
-  removeTag = (tabKey) => {
+  removeTab = (tabKey) => {
     this.props.dispatch({
-      type: 'tabs/removeTag',
+      type: 'tabs/removeTab',
       payload: {
         tabKey,
       },

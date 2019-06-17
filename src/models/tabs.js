@@ -1,6 +1,6 @@
 /**
  * 对标签页的数据状态存储
- * @desc: 
+ * @desc:
  *    tabKey规则：以组件名为key，若有多个同一组件的tab，每个key后面加【-id】，如流程A的tab为CreateFlow-1,流程B的tab为CreateFlow-2;
  *    tabKey有可能与comKey相同；
  */
@@ -11,13 +11,13 @@ const initTabConfig = {
   comKey: '', // 该tab引用的组件
   title: '',
   closable: true,
-}
+};
 export default {
   state: {
     openedTabs: [
       {
-        tabKey: 'MainBoard', 
-        comKey: 'MainBoard', 
+        tabKey: 'MainBoard',
+        comKey: 'MainBoard',
         title: '桌面首页',
         closable: false,
       },
@@ -25,18 +25,10 @@ export default {
         tabKey: 'CreateFlow-123',
         comKey: 'CreateFlow',
         title: 'tab1',
-        key: 'CreateFlow'
-      }, {
-        tabKey: 'FlowList-1',
-        comKey: 'FlowList',
-        title: 'tab2',
-      }, {
-        tabKey: 'FlowList-2',
-        comKey: 'FlowList',
-        title: 'tab3',
-      }
+        key: 'CreateFlow',
+      },
     ], // 已经打开的tab
-    activeTabKey: 'MainBoard', // 当前打开的tag tagKey
+    activeTabKey: 'MainBoard', // 当前打开的tab tabKey
     activeTabInfo: {}, // 当前tab的数据
   },
   subscriptions: {},
@@ -44,21 +36,21 @@ export default {
   },
   reducers: {
     // 切换tab
-    setActiveTagKey(state, { payload }) {
+    setActiveTabKey(state, { payload }) {
       const { openedTabs } = state;
       const { activeTabKey } = payload;
       return {
         ...state,
         activeTabKey,
         activeTabInfo: openedTabs.filter(tab => tab.tabKey === activeTabKey)[0],
-      }
+      };
     },
-    // 增加tag标签
-    addTag(state, { payload }) {
+    // 增加tab标签
+    addTab(state, { payload }) {
       const { openedTabs } = state;
       const { tabKey } = payload;
       // 要增加的tab已经打开
-      if (openedTabs.filter(tab => tab.tabKey === tabKey).length) return;
+      if (openedTabs.filter(tab => tab.tabKey === tabKey).length) return { ...state };
       return {
         ...state,
         activeTabKey: tabKey,
@@ -66,13 +58,13 @@ export default {
           ...openedTabs,
           {
             ...initTabConfig,
-            ...payload
+            ...payload,
           },
-        ]
-      }
+        ],
+      };
     },
-    // 根据id删除tag标签
-    removeTag(state, { payload }) {
+    // 根据id删除tab标签
+    removeTab(state, { payload }) {
       const { openedTabs, activeTabKey } = state;
       const { tabKey } = payload;
       const removeTabIndex = openedTabs.findIndex(item => item.tabKey === tabKey);
@@ -85,6 +77,6 @@ export default {
         openedTabs: newTabs,
         activeTabKey: newActiveTabKey,
       };
-    }
+    },
   },
-}
+};

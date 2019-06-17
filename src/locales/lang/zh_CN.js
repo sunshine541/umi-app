@@ -5,7 +5,8 @@
  * 支持变量，在调用处加values
  */
 const zh_CN = {
-    'home.hello': '你好',
-    'home.name': '我的姓名：{name}'
-}
+  'system.company.name': '公司',
+  'home.hello': '你好',
+  'home.name': '我的姓名：{name}',
+};
 export default zh_CN;
