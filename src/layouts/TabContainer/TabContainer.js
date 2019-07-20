@@ -9,8 +9,8 @@ import React from 'react';
 import { connect } from 'dva';
 import { Tabs } from 'antd';
 import classNames from 'classnames';
-import Test from '../../components/Test/Test';
-import { BaseContext } from '../../constants/global';
+import Test from '@/components/Test/Test';
+import { BaseContext } from '@/constants/global';
 import styles from './TabContainer.less';
 
 const { TabPane } = Tabs;

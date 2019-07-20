@@ -1,5 +1,10 @@
+import path from 'path';
+
 export default {
   treeShaking: true,
+  alias: {
+    '@': path.resolve(__dirname, 'src'),
+  },
   proxy: {
     "/api/*": {
       "target": "http://2.2.2.2",
