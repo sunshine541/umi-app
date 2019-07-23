@@ -60,6 +60,7 @@ export default {
       const newOpenedTabs = [...openedTabs];
       // 区分【删除tab】情况下
       if (activeTabIndex !== -1) newOpenedTabs.splice(activeTabIndex, 1, newActiveTabData);
+      console.log('aaa state1');
       return {
         ...state,
         openedTabs: newOpenedTabs,
@@ -71,10 +72,16 @@ export default {
       const { activeTabKey } = payload;
       const { openedTabs } = state;
       const activeTabData = openedTabs.find(item => item.tabKey === activeTabKey) || {};
+      const activeTabIndex = openedTabs.findIndex(item => item.tabKey === activeTabKey) || {};
+      const newActiveTabData = { ...activeTabData, isReloadData: true };
+      const newOpenedTabs = [...openedTabs];
+      newOpenedTabs.splice(activeTabIndex, 1, newActiveTabData);
+      console.log('aaa state2');
       return {
         ...state,
         activeTabKey,
-        activeTabData,
+        openedTabs: newOpenedTabs,
+        activeTabData: newActiveTabData,
       };
     },
     // 增加tab
@@ -84,6 +91,7 @@ export default {
       // 要增加的tab已经打开则切换到当前tab
       if (openedTabs.find(tab => tab.tabKey === tabKey)) {
         const activeTabData = openedTabs.find(item => item.tabKey === tabKey) || {};
+        console.log('aaa state3');
         return {
           ...state,
           activeTabKey: tabKey,
@@ -94,6 +102,7 @@ export default {
         ...initTabConfig,
         ...payload,
       };
+      console.log('aaa state4');
       return {
         ...state,
         activeTabKey: tabKey,
@@ -114,6 +123,7 @@ export default {
       // 删除的tab就是当前打开的tab时，activeTab前移
       if (activeTabKey === tabKey && removeTabIndex > 0) newActiveTabKey = newTabs[removeTabIndex - 1].tabKey;
       const activeTabData = openedTabs.find(item => item.tabKey === newActiveTabKey) || {};
+      console.log('aaa state5');
       return {
         ...state,
         openedTabs: newTabs,
