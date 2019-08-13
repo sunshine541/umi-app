@@ -31,7 +31,7 @@ class TabContainer extends React.Component {
     });
   }
   onEdit = (targetKey, action) => {
-    // 关闭tab
+    // 关闭tab test
     if (action === 'remove') {
       this.removeTab(targetKey);
     }
