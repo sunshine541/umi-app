@@ -1,15 +1,21 @@
 import path from 'path';
+const px2rem = require('postcss-px2rem-exclude');
 
 export default {
   treeShaking: true,
   alias: {
     '@': path.resolve(__dirname, 'src'),
   },
+  extraPostCSSPlugins: [
+    px2rem({
+      remUnit: 75
+    })
+  ],
   proxy: {
     "/api/*": {
       "target": "http://2.2.2.2",
       "changeOrigin": true,
-      "pathRewrite": { "^/api" : "" }
+      "pathRewrite": { "^/api": "" }
     }
   },
   plugins: [
@@ -20,7 +26,7 @@ export default {
       dynamicImport: false,
       title: 'umi-app-new',
       dll: false,
-      
+
       routes: {
         exclude: [
           /models\//,
